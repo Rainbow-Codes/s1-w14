@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Monty {
 
@@ -57,9 +59,21 @@ public class Monty {
     // This is called by Monty after the contestant makes his/her first guess.
     // It returns the position of a door behind which is a goat.
     private int goatDoorToShow (int doorWithCar, int chosenDoor) {
-      return -1;
-		//write this ....
-    }
+    //   int x = (int)(Math.random()*3)+1;
+    //   while(x==doorWithCar || x==chosenDoor){
+    //     x = (int)(Math.random()*3)+1;
+    //   }
+    //   return x;
+
+      List<Integer> y = new ArrayList<>();
+      y.add(1); y.add(2); y.add(3);
+      y.remove(doorWithCar-1);
+      y.remove(Integer.valueOf(chosenDoor));
+      if(y.size()==2){
+        return y.get(randoms.nextInt(2));
+      }
+      return y.get(0);
+      }
     
     // The contestant decides on a second guess, aided (?) by knowing that the given
     // door has a goat.  Return the updated guess.
